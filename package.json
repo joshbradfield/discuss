@@ -1,6 +1,6 @@
 {
-  "name": "discuss",
-  "description": "chat application",
+  "name": "discussting",
+  "description": "prototype online discussion",
   "author": "Joshua Bradfield <joshbradfield@gmail.com> (http://github.com/joshbradfield)",
   "license": "MIT",
   "version": "0.9.0",

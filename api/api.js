@@ -1,12 +1,13 @@
 import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
-import config from '../src/config';
-import * as actions from './actions/index';
-import {mapUrl} from 'utils/url.js';
 import PrettyError from 'pretty-error';
 import http from 'http';
 import SocketIo from 'socket.io';
+
+import config from '../src/config';
+import * as actions from './actions/index';
+import {mapUrl} from 'utils/url.js';
 
 const pretty = new PrettyError();
 const app = express();
