@@ -15,7 +15,6 @@ import { ReduxAsyncConnect, loadOnServer } from 'redux-async-connect';
 import createHistory from 'react-router/lib/createMemoryHistory';
 import {Provider} from 'react-redux';
 
-
 import config from './config';
 import createStore from './redux/create';
 import ApiClient from './helpers/ApiClient';
@@ -114,7 +113,6 @@ app.use((req, res) => {
     }
   });
 });
-
 
 
 if (config.port) {
