@@ -1,7 +1,7 @@
 require('babel-polyfill');
 
 // The below will not work with Karma, unless you let it see the root dir...
-//const pjson = require('../package.json');
+// const pjson = require('../package.json');
 
 const environment = {
   development: {
