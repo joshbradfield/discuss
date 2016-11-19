@@ -1,6 +1,7 @@
 require('babel-polyfill');
 
-const pjson = require('../package.json');
+// The below will not work with Karma, unless you let it see the root dir...
+//const pjson = require('../package.json');
 
 const environment = {
   development: {
@@ -18,19 +19,19 @@ module.exports = Object.assign({
   apiHost: process.env.APIHOST || 'localhost',
   apiPort: process.env.APIPORT,
   app: {
-    title: pjson.name,
-    description: pjson.description,
-    repository: pjson.repository,
+    title: 'discussting',
+    description: 'A platform for online discussion',
+    repository: 'https://github.com/joshbradfield/discuss',
     head: {
       titleTemplate: 'discuss: %s',
       meta: [
         {name: 'description', content: 'proto'},
         {charset: 'utf-8'},
-        {property: 'og:site_name', content: pjson.name},
+        {property: 'og:site_name', content: 'discussting'},
         {property: 'og:image', content: 'https://ff-discuss.herokuapp.com/logo.jpg'},
         {property: 'og:locale', content: 'en_US'},
         {property: 'og:title', content: 'discuss'},
-        {property: 'og:description', content: pjson.description},
+        {property: 'og:description', content: 'A platform for online discussion'},
         {property: 'og:card', content: 'summary'},
         {property: 'og:site', content: '@joshbradfield'},
         {property: 'og:creator', content: '@joshbradfield'},
