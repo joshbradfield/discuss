@@ -1,14 +1,11 @@
 import Express from 'express';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
-import config from './config';
 import favicon from 'serve-favicon';
 import compression from 'compression';
 import httpProxy from 'http-proxy';
 import path from 'path';
-import createStore from './redux/create';
-import ApiClient from './helpers/ApiClient';
-import Html from './helpers/Html';
+
 import PrettyError from 'pretty-error';
 import http from 'http';
 
@@ -17,16 +14,25 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { ReduxAsyncConnect, loadOnServer } from 'redux-async-connect';
 import createHistory from 'react-router/lib/createMemoryHistory';
 import {Provider} from 'react-redux';
+
+
+import config from './config';
+import createStore from './redux/create';
+import ApiClient from './helpers/ApiClient';
+import Html from './helpers/Html';
 import getRoutes from './routes';
 
 const targetUrl = 'http://' + config.apiHost + ':' + config.apiPort;
 const pretty = new PrettyError();
+
 const app = new Express();
 const server = new http.Server(app);
 const proxy = httpProxy.createProxyServer({
   target: targetUrl,
   ws: true
 });
+
+// ## Load Express Middleware
 
 app.use(compression());
 app.use(favicon(path.join(__dirname, '..', 'static', 'favicon.ico')));
@@ -108,6 +114,8 @@ app.use((req, res) => {
     }
   });
 });
+
+
 
 if (config.port) {
   server.listen(config.port, (err) => {
